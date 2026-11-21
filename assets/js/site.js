@@ -40,11 +40,11 @@
   }).filter((c) => c.clips.length);
   cats.push({
     id: "broadcasts", name: "שידורים מלאים", note: "המשחקים ששידרתי העונה, מהשריקה הראשונה ועד האחרונה, ב-IBBA TV (פיקסלוט).",
-    meta: `${S.broadcasts.length} משחקים`, broadcasts: S.broadcasts
+    broadcasts: S.broadcasts
   });
   cats.push({
     id: "hosting", name: "פודקאסטים והנחיה", note: "ZOOM IN, מטמלל, פודקאסטים של הנבחרות וימי מדיה.", clips: S.hosting,
-    meta: `${S.hosting.length} קטעים | ${mmss(S.hosting.reduce((a, c) => a + secs(c.dur), 0))}`, poster: S.hosting[0] && M(`media/posters/${S.hosting[0].id}.jpg`)
+    poster: S.hosting[0] && M(`media/posters/${S.hosting[0].id}.jpg`)
   });
 
   const grid = $("catGrid");

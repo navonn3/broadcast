@@ -78,7 +78,7 @@ window.SITE = {
       name: "הומור",
       note: "הרגעים המצחיקים מהשידורים",
       reels: [
-        { id: "fun-1", reel: true, dur: "0:45", title: "הומור", context: "ריל | הרגעים המצחיקים מהשידורים", src: "media/reels/fun-1_phone.mp4", poster: "media/reels/fun-1.jpg", youtube: null }
+        { id: "fun-1", reel: true, dur: "0:38", title: "הומור", context: "ריל | הרגעים המצחיקים מהשידורים", src: "media/reels/fun-1_phone.mp4?v=2", poster: "media/reels/fun-1.jpg?v=2", youtube: null }
       ],
       clips: []
     }
