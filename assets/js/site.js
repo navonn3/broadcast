@@ -27,21 +27,20 @@
     </figure>`;
 
   // One card per category: the sports, then full broadcasts and hosting.
-  // A sport's reels come first in its sheet, then the single clips. Reels marked `soon`
-  // show greyed; the count and running time cover playable items only.
+  // Rendered reels replace the single clips (Matan 21.11): a sport with a rendered reel shows
+  // only its reels. Until then it keeps its singles; reels marked `soon` are not shown.
+  // A sport with nothing playable yet gets no card.
   const cats = S.sports.map((s) => {
-    const reels = s.reels || [], ready = reels.filter((r) => !r.soon), play = ready.concat(s.clips);
-    const parts = [];
-    if (ready.length) parts.push(ready.length === 1 ? "ריל אחד" : `${ready.length} רילים`);
-    if (s.clips.length) parts.push(`${s.clips.length} קטעים`);
-    if (play.length) parts.push(mmss(play.reduce((a, c) => a + secs(c.dur), 0)));
-    const first = ready[0] || s.clips[0];
+    const ready = (s.reels || []).filter((r) => !r.soon), play = ready.length ? ready : s.clips;
+    const n = play.length;
+    const count = ready.length ? (n === 1 ? "ריל אחד" : `${n} רילים`) : `${n} קטעים`;
+    const first = play[0];
     return {
-      id: s.id, name: s.name, note: s.note, clips: reels.concat(s.clips), soon: !play.length,
-      meta: play.length ? parts.join(" | ") : "בקרוב",
+      id: s.id, name: s.name, note: s.note, clips: play,
+      meta: `${count} | ${mmss(play.reduce((a, c) => a + secs(c.dur), 0))}`,
       poster: first && M(first.poster || `media/posters/${first.id}.jpg`)
     };
-  });
+  }).filter((c) => c.clips.length);
   cats.push({
     id: "broadcasts", name: "שידורים מלאים", note: "המשחקים ששידרתי העונה, מהשריקה הראשונה ועד האחרונה, ב-IBBA TV (פיקסלוט).",
     meta: `${S.broadcasts.length} משחקים`, broadcasts: S.broadcasts
