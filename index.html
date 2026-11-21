@@ -1,0 +1,77 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>מתן נבון | שדר ספורט</title>
+  <meta name="claude:viewport-fit-sides" content="cover">
+  <meta name="description" content="מתן נבון, שדר ספורט: כדורסל, כדורגל, כדוריד ומירוץ מכוניות. קטעי שידור, שידורים מלאים ויצירת קשר.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Karantina:wght@400;700&family=Rubik:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/site.css">
+</head>
+<body>
+  <a class="skip" href="#cats">דלג לקטעים</a>
+
+  <main class="wrap">
+    <header class="id">
+      <p class="onair"><span class="dot" aria-hidden="true"></span>שדר ספורט</p>
+      <h1 class="name">מתן נבון</h1>
+      <p class="role">כדורסל | כדורגל | כדוריד | מירוץ מכוניות</p>
+      <p class="langs">משדר בעברית ובאנגלית</p>
+      <nav class="quick" aria-label="יצירת קשר">
+        <a class="btn btn-main" id="ctWhatsapp" rel="noopener">וואטסאפ</a>
+        <a class="btn" href="#contact">מייל</a>
+        <a class="btn" href="https://instagram.com/navonbrdcst" rel="noopener">אינסטגרם</a>
+      </nav>
+    </header>
+
+
+    <section class="cats" id="cats" aria-labelledby="catsTitle">
+      <h2 id="catsTitle" class="sec-title">מהשידורים</h2>
+      <p class="sec-lede">בחרו ענף. כל קטע עם הקריינות כפי שעלתה לאוויר.</p>
+      <div class="cat-grid" id="catGrid"></div>
+    </section>
+
+    <section class="about" id="about" aria-labelledby="aboutTitle">
+      <h2 id="aboutTitle" class="sec-title">אודות</h2>
+      <p>מתן נבון משדר כדורסל, כדורגל, כדוריד ומירוצי מכוניות. בקיץ 2026 שידר את גמרי המכביה בכדורסל, חלקם באנגלית לקהל הבינלאומי. במאי 2026 שידר את גמרי גביע המדינה לנוער בכדורגל.</p>
+      <p>לאורך העונה הוא משדר משחקי ליגה לאומית, ליגות נוער ונבחרות הנוער של ישראל, ומגיש את הפודקאסט Zoom In.</p>
+      <ul class="frames" aria-label="מסגרות">
+        <li>מכביה 2026</li><li>נבחרות נוער</li><li>ליגה לאומית</li><li>ליגות נוער</li><li>גביע המדינה, IFA</li>
+      </ul>
+    </section>
+
+    <section class="contact" id="contact" aria-labelledby="contactTitle">
+      <h2 id="contactTitle" class="sec-title">לשידור הבא</h2>
+      <p class="sec-lede">צריכים שדר למשחק, לטורניר או לעונה? כתבו.</p>
+      <div class="contact-rows">
+        <a class="btn btn-main" id="ctWhatsapp2" rel="noopener">וואטסאפ</a>
+        <div class="mail">
+          <a id="ctEmail" dir="ltr"></a>
+          <button class="copy" id="copyMail" type="button">העתק</button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="foot">
+      <p>© מתן נבון | <a href="https://instagram.com/navonbrdcst" rel="noopener">אינסטגרם <bdi dir="ltr">@navonbrdcst</bdi></a></p>
+    </footer>
+  </main>
+
+  <dialog class="sheet" id="sheet" aria-labelledby="sheetTitle">
+    <div class="sheet-head">
+      <div>
+        <h2 id="sheetTitle"></h2>
+        <p id="sheetNote"></p>
+      </div>
+      <button class="close" id="sheetClose" type="button" aria-label="סגירה">✕</button>
+    </div>
+    <div class="sheet-body" id="sheetBody"></div>
+  </dialog>
+
+  <script src="assets/js/clips.js"></script>
+  <script src="assets/js/site.js"></script>
+</body>
+</html>

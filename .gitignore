@@ -1,0 +1,4 @@
+media/
+tools/
+.env
+*.env
