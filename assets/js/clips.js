@@ -39,7 +39,7 @@ window.SITE = {
       // Reels first (21.11, from the reel planning page): 720p phone encode + poster in media/reels/.
       reels: [
         { id: "fb-1", reel: true, dur: "1:06", title: "גמר גביע נערים ב׳: הפועל ת״א", context: "ריל | הפועל ת״א–מכבי נתניה 6-1, 24.5.2026", src: "media/reels/fb-1_phone.mp4?v=2", poster: "media/reels/fb-1.jpg?v=2", youtube: null },
-        { id: "fb-2", reel: true, dur: "1:23", title: "עוד גמרים, ושני שערים מאוחרים", context: "ריל | גוסרסקי, דחק וגביע הילדים של מכבי ת״א", src: "media/reels/fb-2_phone.mp4?v=2", poster: "media/reels/fb-2.jpg?v=2", youtube: null }
+        { id: "fb-2", reel: true, dur: "1:23", title: "משחקי הכרעה נוספים", context: "ריל | גוסרסקי, דחק וגביע הילדים של מכבי ת״א", src: "media/reels/fb-2_phone.mp4?v=2", poster: "media/reels/fb-2.jpg?v=2", youtube: null }
       ],
       clips: [
         { id: "fb-engelstein", dur: "0:22", title: "אנגלשטיין פותח מחוץ לרחבה", context: "גמר גביע המדינה ילדים א׳, מכבי ת״א–מכבי נתניה", youtube: null },
@@ -78,7 +78,7 @@ window.SITE = {
       name: "הומור",
       note: "הרגעים המצחיקים מהשידורים",
       reels: [
-        { id: "fun-1", reel: true, dur: "0:38", title: "הומור", context: "ריל | הרגעים המצחיקים מהשידורים", src: "media/reels/fun-1_phone.mp4?v=2", poster: "media/reels/fun-1.jpg?v=2", youtube: null }
+        { id: "fun-1", reel: true, dur: "0:38", title: "הומור", context: "ריל | הרגעים המצחיקים מהשידורים", src: "media/reels/fun-1_phone.mp4?v=3", poster: "media/reels/fun-1.jpg?v=3", youtube: null }
       ],
       clips: []
     }

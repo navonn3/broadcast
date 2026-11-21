@@ -128,11 +128,11 @@ a { color: var(--accent); }
 
 /* Sheet (dialog): bottom sheet on phones, centered panel on desktop */
 .sheet {
-  width: 100%; max-width: 860px; max-height: 92svh; margin: auto auto 0; padding: 0;
-  border: 1px solid var(--line); border-radius: var(--r) var(--r) 0 0;
+  /* centred in the screen at every width (Matan 21.11), not a bottom sheet */
+  width: calc(100% - 24px); max-width: 860px; max-height: 88svh; margin: auto; padding: 0;
+  border: 1px solid var(--line); border-radius: var(--r);
   background: var(--bg); color: var(--fg);
 }
-@media (min-width: 760px) { .sheet { margin: auto; border-radius: var(--r); max-height: 88svh; } }
 .sheet::backdrop { background: rgba(5, 8, 12, .75); }
 .sheet[open] { display: flex; flex-direction: column; animation: up .22s ease-out; }
 @keyframes up { from { transform: translateY(24px); opacity: .6; } to { transform: none; opacity: 1; } }
