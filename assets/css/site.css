@@ -117,12 +117,14 @@ a { color: var(--accent); }
   aspect-ratio: 15 / 4; padding: 0; border: 0; border-block: 1px solid var(--line); background: var(--panel); color: var(--fg);
   font: inherit; cursor: pointer; overflow: hidden; }
 .bar-photo { position: absolute; inset: 0; background: center / cover no-repeat; }
-.bar::after { content: ""; position: absolute; inset: 0; background: linear-gradient(270deg, rgba(14, 20, 27, .8) 10%, rgba(14, 20, 27, .15) 60%); }
-.bar-icon { position: absolute; z-index: 1; left: max(18px, env(safe-area-inset-left, 0px)); top: 50%; height: 62%; width: auto; transform: translateY(-50%); filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .5)); }
-/* Title on the start (right) side, the small orange bar under it, the chevron beside it. */
-.bar-title { position: absolute; z-index: 1; right: max(18px, env(safe-area-inset-right, 0px)); top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 10px; }
-.bar-name { font: 700 clamp(1.7rem, 7.5vw, 2.4rem)/1 var(--display); color: var(--fg); text-shadow: 0 2px 10px rgba(0, 0, 0, .6); white-space: nowrap; }
-.bar-name::after { content: ""; display: block; width: 28px; height: 3px; border-radius: 2px; background: var(--accent); margin-top: 6px; }
+.bar::after { content: ""; position: absolute; inset: 0; background: linear-gradient(90deg, rgba(14, 20, 27, .8) 10%, rgba(14, 20, 27, .15) 60%); }
+/* Everything on the left (Matan 22.11): icon, then the title with the orange bar under it, then the chevron.
+   The page is RTL, so the row is set to LTR explicitly. */
+.bar-row { position: absolute; z-index: 1; inset-block: 0; left: max(18px, env(safe-area-inset-left, 0px)); direction: ltr;
+  display: flex; align-items: center; gap: 12px; }
+.bar-icon { height: 62%; width: auto; flex: none; filter: drop-shadow(0 6px 10px rgba(0, 0, 0, .5)); }
+.bar-name { direction: rtl; font: 700 clamp(1.7rem, 7.5vw, 2.4rem)/1 var(--display); color: var(--fg); text-shadow: 0 2px 10px rgba(0, 0, 0, .6); white-space: nowrap; }
+.bar-name::after { content: ""; display: block; width: 28px; height: 3px; border-radius: 2px; background: var(--accent); margin-top: 6px; margin-inline-start: auto; }
 .bar-chev { flex: none; width: 30px; height: 30px; border-radius: 50%; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-weight: 700; transition: transform .2s; }
 .bar[aria-expanded="true"] .bar-chev { transform: rotate(-90deg); }
 @media (prefers-reduced-motion: reduce) { .bar-chev { transition: none; } }
@@ -205,10 +207,11 @@ a { color: var(--accent); }
 .cbtn svg { flex: none; }
 .cbtn-wa { background: #1FA855; }
 .cbtn-wa:hover { background: #188F47; }
-.cbtn-mail { background: var(--accent); color: var(--accent-ink); }
-.cbtn-mail:hover { background: #FF8C38; }
-.cbtn-ig { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 2px var(--fg); }
-.cbtn-ig:hover { background: var(--fg); color: var(--bg); }
+/* Email: white with a dark glyph (Matan 22.11). Instagram: the brand gradient with a white glyph. */
+.cbtn-mail { background: #FFFFFF; color: #0E141B; }
+.cbtn-mail:hover { background: #E6EBF0; }
+.cbtn-ig { background: linear-gradient(to right, #FEDA75 0%, #FA7E1E 20%, #D62976 52%, #962FBF 78%, #4F5BD5 100%); color: #FFFFFF; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); }
+.cbtn-ig:hover { filter: brightness(1.08); }
 .cbtn .detail { font-weight: 500; opacity: .85; direction: ltr; unicode-bidi: isolate; }
 .cbtns-lg .cbtn { padding: 16px 20px; font-size: 1rem; }
 @media (max-width: 640px) { .cbtns-lg .cbtn { flex: 1 1 100%; justify-content: center; } }
