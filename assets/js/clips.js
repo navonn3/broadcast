@@ -103,7 +103,7 @@ window.SITE = {
     { id: "pod-kadetim", vert: true, dur: "1:54", title: "פודקאסט הקדטים: סיכום האליפות", context: "דייוויד מוזס, רום סטולר והדור הבא", youtube: null },
     { id: "pod-noar-qf", vert: true, dur: "1:36", title: "נבחרת הנוער לפני רבע הגמר", context: "פודקאסט אליפות אירופה עד גיל 18: הסקאוטינג על סלובניה", youtube: null },
     { id: "pod-matamlel-stoler", vert: true, dur: "1:06", title: "מטמלל | רום סטולר", context: "פודקאסט הליגה הלאומית והנוער", youtube: null },
-    { id: "pod-matamlel-ashdod", vert: true, dur: "1:01", title: "מטמלל | אשדוד בדרך לסדרת הגמר?", context: "פודקאסט הליגה הלאומית, פרק 29", youtube: null },
+    { id: "pod-matamlel-ashdod", vert: true, src: "media/clips/pod-matamlel-ashdod.mp4?v=2", dur: "1:01", title: "מטמלל | אשדוד בדרך לסדרת הגמר?", context: "פודקאסט הליגה הלאומית, פרק 29", youtube: null },
     { id: "host-u18-qa-full", vert: true, dur: "1:22", title: "יום מדיה, נבחרת U18: מסי או רונלדו?", context: "ראיונות קצרים עם שחקני הנבחרת לפני אליפות אירופה", youtube: null }
   ]
 };
