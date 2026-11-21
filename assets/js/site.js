@@ -23,7 +23,7 @@
     </figure>`;
   const clip = (c) => c.soon ? soon(c) : `<figure class="clip${c.vert ? " vert" : ""}">
       <div class="frame">${player(c)}</div>
-      <figcaption><strong>${c.title}</strong><span>${c.context}${c.dur ? ` | <span class="dur">${c.dur}</span>` : ""}</span></figcaption>
+      <figcaption><strong>${c.title}</strong></figcaption>
     </figure>`;
 
   // One card per category: the sports, then full broadcasts and hosting.
@@ -32,12 +32,9 @@
   // A sport with nothing playable yet gets no card.
   const cats = S.sports.map((s) => {
     const ready = (s.reels || []).filter((r) => !r.soon), play = ready.length ? ready : s.clips;
-    const n = play.length;
-    const count = ready.length ? (n === 1 ? "ריל אחד" : `${n} רילים`) : `${n} קטעים`;
     const first = play[0];
     return {
       id: s.id, name: s.name, note: s.note, clips: play,
-      meta: `${count} | ${mmss(play.reduce((a, c) => a + secs(c.dur), 0))}`,
       poster: first && M(first.poster || `media/posters/${first.id}.jpg`)
     };
   }).filter((c) => c.clips.length);
@@ -57,7 +54,7 @@
     return `<button class="cat${soon ? " cat-soon" : ""}${c.poster ? "" : " cat-plain"}" type="button" data-i="${i}"${soon ? " disabled" : ""}${bg}>
       <span class="cat-go" aria-hidden="true">${soon ? "…" : "‹"}</span>
       <span class="cat-name">${c.name}</span>
-      <span class="cat-meta">${c.meta}</span>
+      ${c.meta ? `<span class="cat-meta">${c.meta}</span>` : ""}
     </button>`;
   }).join("");
 
@@ -75,8 +72,13 @@
     } else {
       body.innerHTML = c.clips.map(clip).join("");
     }
+    // One video: the sheet opens straight into it, playing (the tap is the user gesture).
+    // Two or more: one per row, title only (Matan 21.11).
+    const one = !c.broadcasts && c.clips.length === 1;
+    body.classList.toggle("one", one);
     if (typeof sheet.showModal === "function") sheet.showModal(); else sheet.setAttribute("open", "");
     body.scrollTop = 0;
+    if (one) { const v = body.querySelector("video"); if (v) { v.preload = "auto"; v.play().catch(() => {}); } }
   }
   function close() {
     body.querySelectorAll("video").forEach((v) => v.pause());
@@ -92,25 +94,10 @@
     body.querySelectorAll("video").forEach((v) => v.pause());
   });
 
-  // Contact: number and address come from SITE.contact in clips.js.
-  ["ctWhatsapp", "ctWhatsapp2"].forEach((id) => {
-    const wa = $(id);
-    if (S.contact.whatsapp) {
-      wa.href = "https://wa.me/" + S.contact.whatsapp;
-    } else {
-      wa.textContent = "וואטסאפ (בקרוב)";
-      wa.setAttribute("aria-disabled", "true");
-    }
-  });
-  const mail = $("ctEmail");
-  mail.href = "mailto:" + S.contact.email;
-  mail.textContent = S.contact.email;
-  const copy = $("copyMail");
-  copy.addEventListener("click", () => {
-    const done = () => { copy.textContent = "הועתק"; setTimeout(() => (copy.textContent = "העתק"), 1600); };
-    const pick = () => { const r = document.createRange(); r.selectNodeContents(mail); const s = getSelection(); s.removeAllRanges(); s.addRange(r); };
-    if (navigator.clipboard && navigator.clipboard.writeText) {
-      navigator.clipboard.writeText(S.contact.email).then(done, pick);
-    } else pick();
-  });
+  // Contact: number and address come from SITE.contact in clips.js (buttons after the Pixellot Academy look B).
+  const w = S.contact.whatsapp, phone = w ? "0" + w.slice(3, 5) + "-" + w.slice(5) : "";
+  ["ctWhatsapp", "ctWhatsapp2"].forEach((id) => { $(id).href = "https://wa.me/" + w; });
+  ["ctMail", "ctMail2"].forEach((id) => { $(id).href = "mailto:" + S.contact.email; });
+  document.querySelectorAll(".waNum").forEach((e) => (e.textContent = phone));
+  document.querySelectorAll(".mailAddr").forEach((e) => (e.textContent = S.contact.email));
 })();

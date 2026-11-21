@@ -117,8 +117,6 @@ a { color: var(--accent); }
 
 /* About + contact */
 .about p { max-width: 62ch; margin: 12px 0 0; }
-.frames { list-style: none; padding: 0; margin: 16px 0 0; display: flex; flex-wrap: wrap; gap: 8px; }
-.frames li { border: 1px solid var(--line); border-radius: 99px; padding: 4px 12px; font-size: .88rem; color: var(--mute); }
 .contact { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 22px 18px; }
 .contact-rows { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
 .mail { display: inline-flex; align-items: center; gap: 8px; min-width: 0; flex-wrap: wrap; }
@@ -151,7 +149,7 @@ a { color: var(--accent); }
   overflow-y: auto; display: grid; gap: 22px;
   padding: 16px max(16px, env(safe-area-inset-right, 0px)) max(24px, env(safe-area-inset-bottom, 0px)) max(16px, env(safe-area-inset-left, 0px));
 }
-@media (min-width: 760px) { .sheet-body { grid-template-columns: repeat(2, minmax(0, 1fr)); } .sheet-body:has(.vert) { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+/* one video per row (Matan 21.11) */
 
 .clip { margin: 0; display: grid; gap: 8px; min-width: 0; }
 .clip .frame { aspect-ratio: 16 / 9; max-width: 100%; border-radius: 10px; overflow: hidden; background: #000; }
@@ -177,3 +175,25 @@ a { color: var(--accent); }
 .bc-meta { grid-column: 1; color: var(--mute); font-size: .85rem; font-variant-numeric: tabular-nums; }
 .bc-link { grid-row: 1 / span 2; grid-column: 2; align-self: center; font-size: .85rem; }
 .soon { color: var(--mute); border: 1px solid var(--line); border-radius: 99px; padding: 2px 10px; }
+
+/* Contact buttons, after the Pixellot Academy look B: flat fills, 6px corners, icon + label. */
+.cbtns { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; }
+.cbtns-lg { justify-content: flex-start; margin-top: 16px; }
+.cbtn { display: inline-flex; align-items: center; gap: 9px; padding: 13px 18px; border-radius: 6px; border: 0;
+  font: 700 .98rem/1 var(--body); text-decoration: none; color: #fff; transition: background-color .15s ease, transform .1s ease; }
+.cbtn:active { transform: translateY(1px); }
+.cbtn svg { flex: none; }
+.cbtn-wa { background: #1FA855; }
+.cbtn-wa:hover { background: #188F47; }
+.cbtn-mail { background: var(--accent); color: var(--accent-ink); }
+.cbtn-mail:hover { background: #FF8C38; }
+.cbtn-ig { background: transparent; color: var(--fg); box-shadow: inset 0 0 0 2px var(--fg); }
+.cbtn-ig:hover { background: var(--fg); color: var(--bg); }
+.cbtn .detail { font-weight: 500; opacity: .85; direction: ltr; unicode-bidi: isolate; }
+.cbtns-lg .cbtn { padding: 16px 20px; font-size: 1rem; }
+@media (max-width: 640px) { .cbtns-lg .cbtn { flex: 1 1 100%; justify-content: center; } }
+@media (prefers-reduced-motion: reduce) { .cbtn { transition: none; } }
+/* a sheet with one video: the player fills it */
+.sheet-body.one .clip.vert .frame { width: min(100%, 380px); }
+@media (max-width: 420px) { .quick.cbtns { gap: 6px; } .quick.cbtns .cbtn { padding: 11px 12px; gap: 7px; font-size: .92rem; } }
+.nw { white-space: nowrap; }
