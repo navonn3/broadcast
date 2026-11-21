@@ -37,8 +37,8 @@ window.SITE = {
       note: "גמרי גביע המדינה לנוער, IFA TV",
       // Reels first (21.11, from the reel planning page): 720p phone encode + poster in media/reels/.
       reels: [
-        { id: "fb-1", reel: true, dur: "1:15", title: "גמר גביע נערים ב׳: הפועל ת״א", context: "ריל | הפועל ת״א–מכבי נתניה 6-1, 24.5.2026", src: "media/reels/fb-1_phone.mp4", poster: "media/reels/fb-1.jpg", youtube: null },
-        { id: "fb-2", reel: true, dur: "1:38", title: "עוד גמרים, ושני שערים מאוחרים", context: "ריל | גוסרסקי, דחק, פרץ וגביע הילדים של מכבי ת״א", src: "media/reels/fb-2_phone.mp4", poster: "media/reels/fb-2.jpg", youtube: null }
+        { id: "fb-1", reel: true, dur: "1:06", title: "גמר גביע נערים ב׳: הפועל ת״א", context: "ריל | הפועל ת״א–מכבי נתניה 6-1, 24.5.2026", src: "media/reels/fb-1_phone.mp4?v=2", poster: "media/reels/fb-1.jpg?v=2", youtube: null },
+        { id: "fb-2", reel: true, dur: "1:23", title: "עוד גמרים, ושני שערים מאוחרים", context: "ריל | גוסרסקי, דחק וגביע הילדים של מכבי ת״א", src: "media/reels/fb-2_phone.mp4?v=2", poster: "media/reels/fb-2.jpg?v=2", youtube: null }
       ],
       clips: [
         { id: "fb-engelstein", dur: "0:22", title: "אנגלשטיין פותח מחוץ לרחבה", context: "גמר גביע המדינה ילדים א׳, מכבי ת״א–מכבי נתניה", youtube: null },
@@ -52,7 +52,7 @@ window.SITE = {
       note: "ליגת העל",
       // Reels first (21.11, from the reel planning page): 720p phone encode + poster in media/reels/.
       reels: [
-        { id: "hb-1", reel: true, dur: "1:13", title: "חצי גמר הגביע: המהלכים", context: "ריל | ראשון לציון–חולון, חצי גמר גביע המדינה", src: "media/reels/hb-1_phone.mp4", poster: "media/reels/hb-1.jpg", youtube: null }
+        { id: "hb-1", reel: true, dur: "1:10", title: "חצי גמר הגביע: המהלכים", context: "ריל | ראשון לציון–חולון, חצי גמר גביע המדינה", src: "media/reels/hb-1_phone.mp4?v=2", poster: "media/reels/hb-1.jpg?v=2", youtube: null }
       ],
       clips: [
         { id: "hb-or-levi", dur: "1:34", title: "אור לוי, 10 שערים", context: "ליגת העל", youtube: null },
@@ -65,7 +65,7 @@ window.SITE = {
       note: "ליגת מרוצי פיג'ו (פרודרייב), מסלול ערד",
       // Reels not rendered yet: greyed "בקרוב", not clickable.
       reels: [
-        { id: "ms-1", soon: true, title: "אליפות ישראל בקארטינג", context: "ריל | בקרוב" }
+        { id: "ms-1", reel: true, dur: "0:32", title: "אליפות ישראל בקארטינג", context: "ריל | עקיפות ומאבקים על המסלול", src: "media/reels/ms-1_phone.mp4", poster: "media/reels/ms-1.jpg", youtube: null }
       ],
       clips: [
         { id: "ms-race-start", dur: "0:37", title: "הדגל באוויר, וחמאדה כבר עוקף", context: "ליגת מרוצי פיג'ו, מרוץ טורינג | ערד 9.12.22", youtube: null },
@@ -77,7 +77,7 @@ window.SITE = {
       name: "הומור",
       note: "הרגעים המצחיקים מהשידורים",
       reels: [
-        { id: "fun-1", soon: true, title: "הומור", context: "ריל | בקרוב" }
+        { id: "fun-1", reel: true, dur: "0:45", title: "הומור", context: "ריל | הרגעים המצחיקים מהשידורים", src: "media/reels/fun-1_phone.mp4", poster: "media/reels/fun-1.jpg", youtube: null }
       ],
       clips: []
     }
