@@ -2,7 +2,7 @@
   const S = window.SITE;
   const $ = (id) => document.getElementById(id);
   // Videos and posters live on R2 on the live site: SITE.mediaBase is its public URL ("" = same folder).
-  const M = (p) => (S.mediaBase || "") + p;
+  const M = (p) => p ? (S.mediaBase || "") + p : "";
 
   // Durations are "m:ss"; a card shows the clip count and the total running time.
   const secs = (d) => { const [m, s] = (d || "0:00").split(":").map(Number); return m * 60 + s; };
@@ -26,37 +26,49 @@
       <figcaption><strong>${c.title}</strong></figcaption>
     </figure>`;
 
-  // One card per category: the sports, then full broadcasts and hosting.
+  // One card per category: the sports, then hosting. Full broadcasts are the bar under the grid.
   // Rendered reels replace the single clips (Matan 21.11): a sport with a rendered reel shows
   // only its reels. Until then it keeps its singles; reels marked `soon` are not shown.
   // A sport with nothing playable yet gets no card.
+  // Cards (Matan 22.11): a photo, the colourful 3D icon at the bottom and a small orange bar.
+  // No visible name; the aria-label carries it.
+  const ICON = { basketball: "bb", football: "fb", handball: "hb", motorsport: "ms", humor: "fun", hosting: "pod" };
+  const cards = S.cards || {};
   const cats = S.sports.map((s) => {
     const ready = (s.reels || []).filter((r) => !r.soon), play = ready.length ? ready : s.clips;
     const first = play[0];
     return {
       id: s.id, name: s.name, note: s.note, clips: play,
-      poster: first && M(first.poster || `media/posters/${first.id}.jpg`)
+      poster: M(cards[s.id] || (first && (first.poster || `media/posters/${first.id}.jpg`)) || "")
     };
   }).filter((c) => c.clips.length);
   cats.push({
-    id: "broadcasts", name: "שידורים מלאים", note: "המשחקים ששידרתי העונה, מהשריקה הראשונה ועד האחרונה, ב-IBBA TV (פיקסלוט).",
-    broadcasts: S.broadcasts
-  });
-  cats.push({
     id: "hosting", name: "פודקאסטים והנחיה", note: "ZOOM IN, מטמלל, פודקאסטים של הנבחרות וימי מדיה.", clips: S.hosting,
-    poster: S.hosting[0] && M(`media/posters/${S.hosting[0].id}.jpg`)
+    poster: M(cards.hosting || (S.hosting[0] ? `media/posters/${S.hosting[0].id}.jpg` : ""))
   });
 
   const grid = $("catGrid");
-  grid.innerHTML = cats.map((c, i) => {
-    const soon = !!c.soon;
-    const bg = c.poster ? ` style="background-image:url('${c.poster}')"` : "";
-    return `<button class="cat${soon ? " cat-soon" : ""}${c.poster ? "" : " cat-plain"}" type="button" data-i="${i}"${soon ? " disabled" : ""}${bg}>
-      <span class="cat-go" aria-hidden="true">${soon ? "…" : "‹"}</span>
-      <span class="cat-name">${c.name}</span>
-      ${c.meta ? `<span class="cat-meta">${c.meta}</span>` : ""}
-    </button>`;
-  }).join("");
+  grid.innerHTML = cats.map((c, i) => `<button class="cat" type="button" data-i="${i}" aria-label="${c.name}">
+      ${c.poster ? `<img class="cat-photo" src="${c.poster}" alt="" loading="lazy">` : ""}
+      ${ICON[c.id] ? `<img class="cat-icon" src="assets/img/icons/${ICON[c.id]}.webp" alt="">` : ""}
+      <span class="cat-accent" aria-hidden="true"></span>
+    </button>`).join("");
+
+  // Full broadcasts: a full-width bar that opens a list under it (accordion).
+  const bar = $("bcBar"), acc = $("bcAcc");
+  if (bar) {
+    bar.setAttribute("aria-label", `שידורים מלאים, ${S.broadcasts.length} משחקים`);
+    if (cards.broadcasts) $("bcPhoto").style.backgroundImage = `url('${M(cards.broadcasts)}')`;
+    $("bcList").innerHTML = S.broadcasts.map((b) => `<li>
+        <span class="bc-game">${b.game}</span>
+        <span class="bc-meta">${[b.date, b.league, b.lang].filter(Boolean).join(" | ")}</span>
+        <span class="bc-link">${b.url ? `<a href="${b.url}" target="_blank" rel="noopener">לצפייה בפיקסלוט</a>` : `<span class="soon">בקרוב</span>`}</span>
+      </li>`).join("");
+    bar.addEventListener("click", () => {
+      const open = bar.getAttribute("aria-expanded") === "true";
+      bar.setAttribute("aria-expanded", String(!open)); acc.hidden = open;
+    });
+  }
 
   const sheet = $("sheet");
   const body = $("sheetBody");

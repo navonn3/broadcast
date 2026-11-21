@@ -10,6 +10,16 @@ window.SITE = {
   // Media (videos, posters) on R2, bucket broadcaster-site (public r2.dev). To move hosts, change this one URL.
   // Off the live site (local preview, the claude.ai preview) the media/ folder next to the page is used.
   mediaBase: /\.github\.io$/.test(location.hostname) ? "https://pub-449558ab35ee413dad0843abd169887a.r2.dev/" : "",
+  // Card photos picked by Matan on the picker page (22.11), cut from the full-quality source.
+  // A category without a pick uses its first clip's poster.
+  cards: {
+    football: "media/cards/fb.jpg?v=1",
+    handball: "media/cards/hb.jpg?v=1",
+    motorsport: "media/cards/ms.jpg?v=1",
+    humor: "media/cards/fun.jpg?v=1",
+    hosting: "media/cards/pod.jpg?v=1",
+    broadcasts: "media/cards/bc.jpg?v=1"
+  },
   sports: [
     {
       id: "basketball",
