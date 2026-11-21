@@ -208,8 +208,9 @@ a { color: var(--accent); }
 .cbtn-wa { background: #1FA855; }
 .cbtn-wa:hover { background: #188F47; }
 /* Email: white with a dark glyph (Matan 22.11). Instagram: the brand gradient with a white glyph. */
-.cbtn-mail { background: #FFFFFF; color: #0E141B; }
-.cbtn-mail:hover { background: #E6EBF0; }
+.cbtn-mail { background: #FFFFFF; color: #0E141B; box-shadow: inset 0 0 0 2px #EA4335; }
+.cbtn-mail svg { color: #EA4335; }
+.cbtn-mail:hover { background: #FDECEA; }
 .cbtn-ig { background: linear-gradient(to right, #FEDA75 0%, #FA7E1E 20%, #D62976 52%, #962FBF 78%, #4F5BD5 100%); color: #FFFFFF; text-shadow: 0 1px 2px rgba(0, 0, 0, .35); }
 .cbtn-ig:hover { filter: brightness(1.08); }
 .cbtn .detail { font-weight: 500; opacity: .85; direction: ltr; unicode-bidi: isolate; }
