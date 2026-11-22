@@ -11,8 +11,9 @@ window.SITE = {
   // Off the live site (local preview, the claude.ai preview) the media/ folder next to the page is used.
   mediaBase: /\.github\.io$/.test(location.hostname) ? "https://pub-449558ab35ee413dad0843abd169887a.r2.dev/" : "",
   // Card photos picked by Matan on the picker page (22.11), cut from the full-quality source.
-  // A category without a pick uses its first clip's poster.
+  // All six categories and the broadcasts bar have a pick (basketball 22.11).
   cards: {
+    basketball: "media/cards/bb.jpg?v=1",
     football: "media/cards/fb.jpg?v=1",
     handball: "media/cards/hb.jpg?v=1",
     motorsport: "media/cards/ms.jpg?v=1",
