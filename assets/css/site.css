@@ -87,7 +87,7 @@ a { color: var(--accent); }
 .sec-lede { margin: 4px 0 0; color: var(--mute); }
 
 /* Category cards */
-.cat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 0; }
+.cat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 14px; }
 @media (min-width: 760px) { .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
 /* Card (Matan 22.11): photo, darkened toward the bottom; the 3D icon at the bottom; a small orange bar under it. */
 .cat {
@@ -128,8 +128,18 @@ a { color: var(--accent); }
   .acc { margin-top: 8px; }
 }
 
-/* About + contact */
+/* About (Matan 22.11): a bar like full broadcasts, first in the section, starts closed.
+   The photo is a portrait on the bar's right side; its left edge fades into the panel. */
+.cats > .bar-about { margin-top: 0; }
+.bar-about .bar-photo { background-size: auto 100%; background-position: right center;
+  -webkit-mask-image: linear-gradient(90deg, transparent 64%, #000 90%); mask-image: linear-gradient(90deg, transparent 64%, #000 90%); }
+@media (min-width: 760px) {
+  .bar-about .bar-photo { -webkit-mask-image: linear-gradient(90deg, transparent 78%, #000 94%); mask-image: linear-gradient(90deg, transparent 78%, #000 94%); }
+}
+.about { padding-block: 4px 18px; }
 .about p { max-width: 62ch; margin: 12px 0 0; }
+
+/* Contact */
 .contact { background: var(--panel); border: 1px solid var(--line); border-radius: var(--r); padding: 22px 18px; }
 .contact-rows { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-top: 16px; }
 .mail { display: inline-flex; align-items: center; gap: 8px; min-width: 0; flex-wrap: wrap; }

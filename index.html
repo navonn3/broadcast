@@ -27,18 +27,20 @@
 
 
     <section class="cats" id="cats" aria-label="מהשידורים">
+      <button class="bar bar-about" id="aboutBar" type="button" aria-expanded="false" aria-controls="aboutAcc" aria-label="אודות">
+        <span class="bar-photo" id="aboutPhoto" aria-hidden="true"></span>
+        <span class="bar-row" aria-hidden="true"><img class="bar-icon" src="assets/img/icons/about.webp" alt=""><span class="bar-name">אודות</span><span class="bar-chev">›</span></span>
+      </button>
+      <div class="acc about" id="aboutAcc" hidden>
+        <p>אני משדר כדורסל, כדורגל, כדוריד ומירוצי מכוניות. בקיץ 2026 שידרתי את גמרי המכביה בכדורסל, חלקם באנגלית לקהל הבינלאומי. במאי 2026 שידרתי את גמרי גביע המדינה לנוער בכדורגל.</p>
+        <p>לאורך העונה אני משדר משחקי ליגה לאומית, ליגות נוער ונבחרות הנוער של ישראל, ומגיש את הפודקאסט <bdi class="nw">Zoom In</bdi>.</p>
+      </div>
       <div class="cat-grid" id="catGrid"></div>
       <button class="bar" id="bcBar" type="button" aria-expanded="false" aria-controls="bcAcc">
         <span class="bar-photo" id="bcPhoto" aria-hidden="true"></span>
         <span class="bar-row" aria-hidden="true"><img class="bar-icon" src="assets/img/icons/bc.webp" alt=""><span class="bar-name">שידורים מלאים</span><span class="bar-chev">›</span></span>
       </button>
       <div class="acc" id="bcAcc" hidden><ul class="bc" id="bcList"></ul></div>
-    </section>
-
-    <section class="about" id="about" aria-labelledby="aboutTitle">
-      <h2 id="aboutTitle" class="sec-title">אודות</h2>
-      <p>אני משדר כדורסל, כדורגל, כדוריד ומירוצי מכוניות. בקיץ 2026 שידרתי את גמרי המכביה בכדורסל, חלקם באנגלית לקהל הבינלאומי. במאי 2026 שידרתי את גמרי גביע המדינה לנוער בכדורגל.</p>
-      <p>לאורך העונה אני משדר משחקי ליגה לאומית, ליגות נוער ונבחרות הנוער של ישראל, ומגיש את הפודקאסט <bdi class="nw">Zoom In</bdi>.</p>
     </section>
 
     <section class="contact" id="contact" aria-labelledby="contactTitle">

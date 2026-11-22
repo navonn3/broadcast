@@ -55,7 +55,7 @@
     </button>`).join("");
 
   // Full broadcasts: a full-width bar that opens a list under it (accordion).
-  const bar = $("bcBar"), acc = $("bcAcc");
+  const bar = $("bcBar");
   if (bar) {
     bar.setAttribute("aria-label", `שידורים מלאים, ${S.broadcasts.length} משחקים`);
     if (cards.broadcasts) $("bcPhoto").style.backgroundImage = `url('${M(cards.broadcasts)}')`;
@@ -64,11 +64,14 @@
         <span class="bc-meta">${[b.date, b.league, b.lang].filter(Boolean).join(" | ")}</span>
         <span class="bc-link">${b.url ? `<a href="${b.url}" target="_blank" rel="noopener">לצפייה בפיקסלוט</a>` : `<span class="soon">בקרוב</span>`}</span>
       </li>`).join("");
-    bar.addEventListener("click", () => {
-      const open = bar.getAttribute("aria-expanded") === "true";
-      bar.setAttribute("aria-expanded", String(!open)); acc.hidden = open;
-    });
   }
+  // About (Matan 22.11): the same kind of bar, above the cards, opening the text under it.
+  if (cards.about && $("aboutPhoto")) $("aboutPhoto").style.backgroundImage = `url('${M(cards.about)}')`;
+  // Every bar opens and closes the panel it controls.
+  document.querySelectorAll(".bar[aria-controls]").forEach((b) => b.addEventListener("click", () => {
+    const open = b.getAttribute("aria-expanded") === "true", panel = $(b.getAttribute("aria-controls"));
+    b.setAttribute("aria-expanded", String(!open)); if (panel) panel.hidden = open;
+  }));
 
   const sheet = $("sheet");
   const body = $("sheetBody");

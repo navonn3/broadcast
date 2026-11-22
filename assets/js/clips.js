@@ -19,7 +19,9 @@ window.SITE = {
     motorsport: "media/cards/ms.jpg?v=1",
     humor: "media/cards/fun.jpg?v=1",
     hosting: "media/cards/pod.jpg?v=1",
-    broadcasts: "media/cards/bc.jpg?v=1"
+    broadcasts: "media/cards/bc.jpg?v=1",
+    // The About bar: Matan at the mic (Matamlel podcast), set on the bar's right side.
+    about: "media/cards/about.jpg?v=1"
   },
   sports: [
     {
