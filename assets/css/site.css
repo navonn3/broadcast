@@ -87,7 +87,7 @@ a { color: var(--accent); }
 .sec-lede { margin: 4px 0 0; color: var(--mute); }
 
 /* Category cards */
-.cat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 18px; }
+.cat-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; margin-top: 0; }
 @media (min-width: 760px) { .cat-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; } }
 /* Card (Matan 22.11): photo, darkened toward the bottom; the 3D icon at the bottom; a small orange bar under it. */
 .cat {
